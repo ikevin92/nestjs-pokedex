@@ -9,7 +9,6 @@ import { PokeResponse } from './interfaces/poke-response.interface';
 @Injectable()
 export class SeedService {
 
-
   //* Inject Model
   constructor(
     @InjectModel(Pokemon.name)
