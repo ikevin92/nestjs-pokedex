@@ -10,7 +10,7 @@ import { PokeResponse } from './interfaces/poke-response.interface';
 export class SeedService {
 
   private readonly axios: AxiosInstance = axios;
-  
+
   //* Inject Model
   constructor(
     @InjectModel(Pokemon.name)
@@ -18,15 +18,29 @@ export class SeedService {
   ) {}
 
   async executeSeed() {
+    await this.pokemonModel.deleteMany({}); // delete * from pokemons;
+
     const { data } = await this.axios.get<PokeResponse>('https://pokeapi.co/api/v2/pokemon?limit=650');
 
+    // const inserPromisesArray = [];
+    const pokemonToInsert: { name: string, no: number; }[] = [];
+
     data.results.forEach(({ name, url }) => {
+
       const segments: string[] = url.split('/');
       const no: number = +segments[segments.length - 2];
 
-      console.log({ name, no });
+      // const pokemon = await this.pokemonModel.create({ name, no });
+      // inserPromisesArray.push(
+      //   this.pokemonModel.create({ name, no })
+      // );
+      pokemonToInsert.push({ name, no }); //[{name: bulbasaur, no: 1}]
     });
 
-    return data.results;
+    await this.pokemonModel.insertMany(pokemonToInsert);
+    
+    // await Promise.all(inserPromisesArray);
+
+    return 'Seed Executed';
   }
 }

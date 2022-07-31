@@ -5,17 +5,25 @@
 # Ejectutar en desarrollo
 
 1. Clonar repositorio
+
 2. Ejecutar
 ```
 yarn install
 ```
+
 3. Tener nest cli instalado
 ```
 npm i -g nestjs/cli
 ```
+
 4. Levantar la base de datos
 ```
 docker-compose up -d 
+```
+
+5.Reconstruir base de datos con la semilla
+```
+http://localhost:3000/api/v2/seed
 ```
 
 ## Stack Usado
