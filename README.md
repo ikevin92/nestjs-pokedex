@@ -28,7 +28,7 @@ docker-compose up -d
 
 7. Ejecutar la aplicacion en dev:
 ```
-yarn star:dev
+yarn start:dev
 ```
 
 8. Reconstruir base de datos con la semilla
