@@ -23,7 +23,7 @@ import { SeedModule } from './seed/seed.module';
     CommonModule,
     SeedModule,
   ],
-  controllers: [],
-  providers: [],
+  // controllers: [],
+  // providers: [],
 })
 export class AppModule {}
