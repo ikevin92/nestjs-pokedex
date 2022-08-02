@@ -39,3 +39,10 @@ http://localhost:3000/api/v2/seed
 ## Stack Usado
 * MongoDB
 * Nestjs
+
+# Notas
+Heroku redeploy sin cambios:
+```
+git commmit --allow-empty -m "Deploy"
+git push heroku <master|main>
+```
